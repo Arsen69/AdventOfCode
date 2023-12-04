@@ -84,31 +84,6 @@ def parcourt_matrice_symboles(matrice):
                 somme += is_gear_2(matrice, i, j)
     return somme
 
-def is_gear(matrice, line_index, column_index):
-    numbers_around = []
-    if column_index - 1 >= 0:
-        numbers_around.append(check_digit_add_number(matrice, line_index, column_index-1))
-        if line_index + 1 < len(matrice):
-            numbers_around.append(check_digit_add_number(matrice, line_index + 1, column_index-1))
-        if line_index-1 >= 0:
-            numbers_around.append(check_digit_add_number(matrice, line_index - 1, column_index-1))
-    if line_index - 1 >= 0:
-        numbers_around.append(check_digit_add_number(matrice, line_index - 1, column_index))
-        if column_index + 1 < len(matrice[line_index]):
-            numbers_around.append(check_digit_add_number(matrice, line_index - 1, column_index + 1))
-    if line_index + 1 < len(matrice):
-        numbers_around.append(check_digit_add_number(matrice, line_index + 1, column_index))
-        if column_index + 1 < len(matrice[line_index]):
-            numbers_around.append(check_digit_add_number(matrice, line_index + 1,column_index + 1))
-    if column_index + 1 < len(matrice[line_index]):
-        numbers_around.append(check_digit_add_number(matrice, line_index, column_index + 1))
-    numbers_around = [x for x in numbers_around if x != 0]
-    ic(numbers_around)
-    if len(numbers_around) == 2:
-        ic(prod(numbers_around))
-        return prod(numbers_around)
-    return 0
-
 def is_gear_2(matrice, line_index, column_index):
     nombres = []
     ic(line_index, column_index)
@@ -134,17 +109,6 @@ def is_gear_2(matrice, line_index, column_index):
     if len(nombres) == 2:
         ic(prod(nombres))
         return prod(nombres)
-    return 0
-
-def check_digit_add_number(matrice, line, column):
-    indice_debut = column
-    indice_fin = column
-    if matrice[line][column].isdigit():
-        while indice_debut > 0 and matrice[line][indice_debut - 1].isdigit() :
-            indice_debut -= 1
-        while indice_fin + 1 < len(matrice[line]) and matrice[line][indice_fin + 1].isdigit() :
-            indice_fin += 1
-        return construire_nb(matrice, line, indice_debut, indice_fin)
     return 0
 
 def prod(set):
