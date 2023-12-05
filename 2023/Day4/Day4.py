@@ -1,5 +1,4 @@
 from icecream import ic
-from collections import defaultdict
 
 test_data = """
 Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
@@ -45,19 +44,15 @@ def calcul_score_carte(matchs):
 
 def part_2(cards):
     nb_cards = {num: 1 for num in cards.keys()}
-    ic(len(cards.items()))
     for k, v in cards.items():
         ic(k,nb_cards[k])
         winning = v[0]
         having = v[1]
-        winning.sort()
-        having.sort()
         match = set(winning).intersection(set(having))
         for i in range(len(match)):
             if k+i+1 > len(nb_cards):
                 continue
             nb_cards[k+i+1] += nb_cards[k]
-    ic(nb_cards.values())
     return sum(nb_cards.values())
 
 ic(part_2(parse_lines(input)))
