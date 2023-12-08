@@ -37,7 +37,7 @@ humidity-to-location map:
 56 93 4
 """
 
-with open(r"C:\Users\aspanier\Documents\Formations\AdventOfCode\2023\Day5\input.txt") as f:
+with open(r"2023\Day5\input.txt") as f:
     input = f.read()
 
 def get_seeds(input_string):

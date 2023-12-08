@@ -7,7 +7,7 @@ Time:      7  15   30
 Distance:  9  40  200
 """
 
-with open(r"C:\Users\aspanier\Documents\Formations\AdventOfCode\2023\Day6\input.txt") as f:
+with open(r"2023\Day6\input.txt") as f:
     input = f.read()
 
 def parse_input(input_string):

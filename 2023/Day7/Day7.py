@@ -19,7 +19,7 @@ TWO = '2Pair'
 ONE = '1Pair'
 HIGH = 'High'
 
-with open(r"C:\Users\aspanier\Documents\Formations\AdventOfCode\2023\Day7\input.txt") as f:
+with open(r"2023\Day7\input.txt") as f:
     input = f.read()
 
 def parse_hands(input_string):
@@ -36,8 +36,8 @@ def part_1(input_string):
     rank = 1
     total_winning = 0
     for key in types:
-        sorted = quicksort(types[key])
-        for hand_bid in sorted:
+        sorted_hands_bids = quicksort(types[key])
+        for hand_bid in sorted_hands_bids:
             winning = rank * hand_bid[1]
             total_winning += winning
             rank += 1
@@ -73,13 +73,13 @@ def get_type_part_1(hand):
             return THREE
         return TWO
 
-def to_value(hand, VALUES):
+def to_value(hand, values):
     transformed_hand = []
     for card in hand:
         if card.isdigit():
             transformed_hand.append(int(card))
         else:
-            transformed_hand.append(VALUES[card])
+            transformed_hand.append(values[card])
     return transformed_hand
 
 def is_same_type_stronger(hand1, hand2):
@@ -150,8 +150,8 @@ def part_2(input_string):
     rank = 1
     total_winning = 0
     for key in types:
-        sorted = quicksort(types[key])
-        for hand_bid in sorted:
+        sorted_hands_bids = quicksort(types[key])
+        for hand_bid in sorted_hands_bids:
             winning = rank * hand_bid[1]
             total_winning += winning
             rank += 1

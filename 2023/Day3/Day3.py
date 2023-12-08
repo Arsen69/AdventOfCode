@@ -15,7 +15,7 @@ test_data = """
 1.1.......56
 """
 
-with open(r"C:\Users\aspanier\Documents\Formations\AdventOfCode\2023\Day3\input.txt") as f:
+with open(r"2023\Day3\input.txt") as f:
     input = f.read()
 
 def into_matrice(input_string):

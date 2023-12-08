@@ -1,7 +1,7 @@
 from icecream import ic
 from collections import defaultdict
 
-with open(r"C:\Users\aspanier\Documents\Formations\AdventOfCode\2023\Day2\input.txt") as f:
+with open(r"2023\Day2\input.txt") as f:
     input = f.read()
 
 test_data = """
@@ -48,21 +48,21 @@ def get_possibles_values(blue, red, green):
     return cubes_available
 
 def count_possibles(games_tirages, possible_values):
-    sum = 0
+    total = 0
     for id_game in games_tirages:
         if check_possible(games_tirages.get(id_game), possible_values):
-            sum += id_game
-    return sum
+            total += id_game
+    return total
 
 ic(count_possibles(get_lignes(test_data), get_possibles_values(14,12,13)))
 
 def sum_powers(games_tirages):
-    sum = 0
+    total = 0
     for id_game in games_tirages:
         ic(games_tirages.get(id_game))
         red, green, blue = get_minimum_cubes(games_tirages.get(id_game))
-        sum += red * green * blue
-    return sum
+        total += red * green * blue
+    return total
 
 def get_minimum_cubes(tirages):
     max_red = 0
