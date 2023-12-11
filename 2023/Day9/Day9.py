@@ -1,6 +1,5 @@
 from icecream import ic
 import time
-from math import lcm
 
 test_data = """
 0 3 6 9 12 15
